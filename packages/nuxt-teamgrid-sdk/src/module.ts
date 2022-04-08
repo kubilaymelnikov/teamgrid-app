@@ -1,5 +1,28 @@
 import { Module } from "@nuxt/types";
 import { join, resolve } from "path";
+import TeamGridSDK from "./api/TeamGridSDK";
+
+declare module "vue/types/vue" {
+  interface Vue {
+    $teamGridSDK: TeamGridSDK;
+  }
+}
+
+declare module "@nuxt/types" {
+  interface NuxtAppOptions {
+    $teamGridSDK: TeamGridSDK;
+  }
+
+  interface Context {
+    $teamGridSDK: TeamGridSDK;
+  }
+}
+
+declare module "vuex/types/index" {
+  interface Store<S> {
+    $teamGridSDK: TeamGridSDK;
+  }
+}
 
 const teamGridSDKModule: Module = function () {
   this.addPlugin({
@@ -13,5 +36,6 @@ const teamGridSDKModule: Module = function () {
 };
 
 export default teamGridSDKModule;
-
+export * from "./api/TeamGridSDK";
+export * from "./plugins/context";
 export const meta = require("./../package.json");
