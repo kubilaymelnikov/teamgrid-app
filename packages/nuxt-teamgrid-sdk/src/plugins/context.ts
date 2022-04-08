@@ -3,23 +3,23 @@ import TeamGridSDK from "@nuxt-teamgrid-sdk/api/TeamGridSDK";
 
 declare module "vue/types/vue" {
   interface Vue {
-    $myInjectedFunction(message: string): void;
+    $teamGridSDK: TeamGridSDK;
   }
 }
 
 declare module "@nuxt/types" {
   interface NuxtAppOptions {
-    $myInjectedFunction(message: string): void;
+    $teamGridSDK: TeamGridSDK;
   }
 
   interface Context {
-    $myInjectedFunction(message: string): void;
+    $teamGridSDK: TeamGridSDK;
   }
 }
 
 declare module "vuex/types/index" {
   interface Store<S> {
-    $myInjectedFunction(message: string): void;
+    $teamGridSDK: TeamGridSDK;
   }
 }
 
