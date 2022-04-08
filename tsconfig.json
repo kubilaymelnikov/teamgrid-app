@@ -14,9 +14,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "@teamgrid-app/nuxt-teamgrid-sdk/*": [
-        "./packages/nuxt-teamgrid-sdk/src/*"
-      ]
+      "@nuxt-teamgrid-sdk/*": ["./packages/nuxt-teamgrid-sdk/src/*"]
     },
     "types": ["@types/node", "@nuxt/types"]
   },

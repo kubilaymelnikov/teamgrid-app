@@ -8,7 +8,7 @@ const teamGridSDKModule: Module = function () {
   });
 
   this.extendBuild((config) => {
-    config.resolve.alias["~teamgrid-shared"] = resolve(__dirname, "./");
+    config.resolve.alias["@nuxt-teamgrid-sdk"] = resolve(__dirname);
   });
 };
 
