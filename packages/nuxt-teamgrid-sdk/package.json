@@ -1,0 +1,38 @@
+{
+  "name": "@teamgrid-app/nuxt-teamgrid-sdk",
+  "version": "0.1.0",
+  "description": "> TODO: description",
+  "author": {
+    "name": "Kubilay Melnikov",
+    "email": "peksen.kubilay@gmail.com",
+    "url": "https://www.kubilaypeksen.de/"
+  },
+  "homepage": "https://github.com/kubilaymelnikov/teamgrid-app/tree/main/packages/nuxt-teamgrid-sdk#readme",
+  "license": "ISC",
+  "main": "./lib/module.js",
+  "typings": "./lib/module.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "tsc": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kubilaymelnikov/teamgrid-app.git",
+    "directory": "packages/nuxt-teamgrid-sdk"
+  },
+  "dependencies": {
+    "axios": "^0.26.1"
+  },
+  "devDependencies": {
+    "nuxt": "^2.15.8",
+    "webpack": "^4.46.0"
+  }
+}
