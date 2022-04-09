@@ -1,10 +1,14 @@
+interface UserQueryParam {
+  email: string;
+}
+
 interface WorkingHour {
   readonly weekday: number;
   readonly start: number;
   readonly end: number;
 }
 
-export default interface UserResponse {
+interface UserResponse {
   readonly userId: string;
   readonly name: string;
   readonly emails: string[];
@@ -14,3 +18,5 @@ export default interface UserResponse {
   readonly currentTaskId: string;
   readonly workingHours: WorkingHour[];
 }
+
+export { UserResponse, UserQueryParam };

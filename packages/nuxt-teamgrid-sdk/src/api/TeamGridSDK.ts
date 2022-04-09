@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
 import TeamResponse from "./types/TeamResponse";
-import UserResponse from "./types/UserResponse";
+import { UserResponse, UserQueryParam } from "./types/UserResponse";
 
 class TeamGridSDK {
   private axios: AxiosInstance;
@@ -25,7 +25,7 @@ class TeamGridSDK {
   }
 
   public getUsers(
-    params?: Object
+    params?: UserQueryParam
   ): Promise<AxiosResponse<UserResponse[], any>> {
     return this.axios.request({ method: "GET", url: "/users", params });
   }
