@@ -12,8 +12,8 @@
   "description": "Collection point for common classes & methods in NuxtJS for TeamGrid Desktop & TeamGrid Mobile.",
   "main": "./lib/index.js",
   "scripts": {
-    "tsc": "lerna run tsc",
-    "publish": "lerna run tsc && lerna publish"
+    "build": "lerna run build",
+    "publish": "lerna run build && lerna publish"
   },
   "repository": {
     "type": "git",

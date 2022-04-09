@@ -10,7 +10,7 @@
   "homepage": "https://github.com/kubilaymelnikov/teamgrid-app/tree/main/packages/nuxt-teamgrid-sdk#readme",
   "license": "ISC",
   "main": "./lib/module.js",
-  "typings": "./lib/module.d.ts",
+  "typings": "./lib/types/module.d.ts",
   "directories": {
     "lib": "lib"
   },
@@ -21,7 +21,8 @@
     "access": "public"
   },
   "scripts": {
-    "tsc": "tsc"
+    "build": "tsc",
+    "watch": "tsc --watch"
   },
   "repository": {
     "type": "git",
