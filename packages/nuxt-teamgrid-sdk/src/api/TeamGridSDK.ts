@@ -1,5 +1,6 @@
 import axios, { AxiosInstance, AxiosResponse } from "axios";
-import { Team } from "./types/Team";
+import TeamResponse from "./types/TeamResponse";
+import UserResponse from "./types/UserResponse";
 
 class TeamGridSDK {
   private axios: AxiosInstance;
@@ -19,11 +20,13 @@ class TeamGridSDK {
     return this;
   }
 
-  public getTeams(): Promise<AxiosResponse<Team, any>> {
+  public getTeams(): Promise<AxiosResponse<TeamResponse, any>> {
     return this.axios.request({ method: "GET", url: "/teams" });
   }
 
-  public getUsers(params?: Object): Promise<AxiosResponse<any, any>> {
+  public getUsers(
+    params?: Object
+  ): Promise<AxiosResponse<UserResponse[], any>> {
     return this.axios.request({ method: "GET", url: "/users", params });
   }
 
