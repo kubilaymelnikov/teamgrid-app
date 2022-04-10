@@ -25,7 +25,7 @@ interface Groupe {
   readonly members: string[];
 }
 
-export default interface TeamResponse {
+interface Team {
   readonly _id: string;
   readonly name: string;
   readonly contactId: string;
@@ -42,3 +42,5 @@ export default interface TeamResponse {
   readonly createdAt: Date;
   readonly createdBy: string;
 }
+
+export { Team };

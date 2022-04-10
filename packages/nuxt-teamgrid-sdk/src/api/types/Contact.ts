@@ -101,7 +101,7 @@ interface Company {
   };
 }
 
-interface Contact {
+interface BaseContact {
   readonly _id: string;
   customerId: string;
   emails: Email[];
@@ -126,12 +126,12 @@ interface Contact {
   createdBy: string;
 }
 
-interface ContactCompanyResponse extends Contact {
+interface ContactCompany extends BaseContact {
   type: "company";
   companyTitle: string;
 }
 
-interface ContactPersonResponse extends Contact {
+interface ContactPerson extends BaseContact {
   type: "person";
   gender: GENDER;
   salutation: string;
@@ -146,6 +146,6 @@ interface ContactQueryParam {
   limit: number;
 }
 
-type ContactResponse = ContactCompanyResponse | ContactPersonResponse;
+type Contact = ContactCompany | ContactPerson;
 
-export { ContactResponse, ContactQueryParam };
+export { Contact, ContactQueryParam };

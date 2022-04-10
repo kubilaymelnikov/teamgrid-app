@@ -8,7 +8,7 @@ interface WorkingHour {
   readonly end: number;
 }
 
-interface UserResponse {
+interface User {
   readonly userId: string;
   readonly name: string;
   readonly emails: string[];
@@ -19,4 +19,4 @@ interface UserResponse {
   readonly workingHours: WorkingHour[];
 }
 
-export { UserResponse, UserQueryParam };
+export { User, UserQueryParam };
