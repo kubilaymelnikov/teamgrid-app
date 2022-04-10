@@ -46,6 +46,7 @@ export * from "./api/types/Service";
 export * from "./api/types/Tag";
 export * from "./api/types/Task";
 export * from "./api/types/Team";
+export * from "./api/types/TeamGridResponse";
 export * from "./api/types/Time";
 export * from "./api/types/User";
 export * from "./api/types/Webhook";
