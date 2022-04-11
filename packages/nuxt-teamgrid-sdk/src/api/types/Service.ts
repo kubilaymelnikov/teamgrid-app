@@ -1,15 +1,15 @@
 interface Service {
-  _id: string;
-  name: string;
-  billable: boolean;
-  hourlyRate: number;
-  createdAt: Date;
-  createdBy: string;
+  _id: string
+  name: string
+  billable: boolean
+  hourlyRate: number
+  createdAt: Date
+  createdBy: string
 }
 
 interface ServiceQueryParam {
-  page: number;
-  limit: number;
+  page: number
+  limit: number
 }
 
-export { Service, ServiceQueryParam };
+export { Service, ServiceQueryParam }

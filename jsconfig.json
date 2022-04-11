@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@nuxt-teamgrid-sdk/*": ["./packages/nuxt-teamgrid-sdk/src/*"]
+    }
+  },
+  "exclude": ["node_modules", ".nuxt", "dist"]
+}

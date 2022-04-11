@@ -1,0 +1,10 @@
+{
+  "stopwatch": {
+    "attributes": ["startTime"],
+    "description": ""
+  },
+  "Stopwatch": {
+    "attributes": ["startTime"],
+    "description": ""
+  }
+}

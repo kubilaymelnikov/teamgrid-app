@@ -1,0 +1,10 @@
+{
+  "stopwatch/startTime": {
+    "type": "date",
+    "description": "Die Startzeit der Stopuhr."
+  },
+  "Stopwatch/startTime": {
+    "type": "date",
+    "description": "Die Startzeit der Stopuhr."
+  }
+}

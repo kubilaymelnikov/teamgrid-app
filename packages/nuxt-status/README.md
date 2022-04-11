@@ -5,7 +5,5 @@
 ## Usage
 
 ```
-const nuxtStatus = require('nuxt-status');
-
 // TODO: DEMONSTRATE API
 ```

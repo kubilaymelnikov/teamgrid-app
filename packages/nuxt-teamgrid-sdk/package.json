@@ -1,7 +1,7 @@
 {
   "name": "@teamgrid-app/nuxt-teamgrid-sdk",
   "version": "0.1.9",
-  "description": "> TODO: description",
+  "description": "This module exposes the TeamGrid API in the Nuxt Context.",
   "author": {
     "name": "Kubilay Melnikov",
     "email": "peksen.kubilay@gmail.com",

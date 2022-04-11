@@ -5,7 +5,5 @@
 ## Usage
 
 ```
-const nuxtSettings = require('nuxt-settings');
-
 // TODO: DEMONSTRATE API
 ```

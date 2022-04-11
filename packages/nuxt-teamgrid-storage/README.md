@@ -5,7 +5,5 @@
 ## Usage
 
 ```
-const nuxtStorage = require('nuxt-storage');
-
 // TODO: DEMONSTRATE API
 ```
