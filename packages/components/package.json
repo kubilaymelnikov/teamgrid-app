@@ -9,20 +9,18 @@
   },
   "homepage": "https://github.com/kubilaymelnikov/teamgrid-app/tree/master/packages/components#readme",
   "license": "ISC",
-  "main": "./lib/module.js",
-  "typings": "./lib/types/module.d.ts",
+  "main": "./src/index.js",
   "directories": {
-    "lib": "lib"
+    "src": "src"
   },
   "files": [
-    "lib"
+    "src"
   ],
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "postinstall": "yarn link && yarn link @teamgrid-app/components",
-    "dev": "yarn nuxt dev example",
+    "dev": "nuxt dev example",
     "vue-int": "vue-int --output './vetur' --input './src/components'"
   },
   "repository": {
@@ -30,15 +28,15 @@
     "url": "https://github.com/kubilaymelnikov/teamgrid-app.git",
     "directory": "packages/components"
   },
-  "dependencies": {},
   "devDependencies": {
-    "nuxt": "^2.15.8",
     "@nuxtjs/moment": "^1.6.1",
     "@nuxtjs/tailwindcss": "^5.0.2",
+    "nuxt": "^2.15.8",
+    "open": "^8.4.0",
     "vue-intellisense": "^1.0.1"
   },
   "vetur": {
-    "tags": "vetur/tags.json",
-    "attributes": "vetur/attributes.json"
+    "tags": "./vetur/tags.json",
+    "attributes": "./vetur/attributes.json"
   }
 }
