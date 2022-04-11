@@ -1,6 +1,6 @@
 {
   "name": "@teamgrid-app/nuxt-settings",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "> TODO: description",
   "author": {
     "name": "Kubilay Melnikov",
@@ -29,7 +29,6 @@
     "url": "https://github.com/kubilaymelnikov/teamgrid-app.git",
     "directory": "packages/nuxt-settings"
   },
-  "dependencies": {},
   "devDependencies": {
     "nuxt": "^2.15.8"
   }

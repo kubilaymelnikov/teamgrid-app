@@ -1,6 +1,6 @@
 {
   "name": "@teamgrid-app/components",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "This module serves as a collection point for all components that we use in TeamGrid Desktop & TeamGrid Mobile.",
   "author": {
     "name": "Kubilay Melnikov",
@@ -38,6 +38,5 @@
   "vetur": {
     "tags": "./vetur/tags.json",
     "attributes": "./vetur/attributes.json"
-  },
-  "dependencies": {}
+  }
 }
