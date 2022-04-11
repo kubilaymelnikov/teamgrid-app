@@ -1,4 +1,4 @@
-# `nuxt-teamgrid-sdk`
+# `@teamgrid-app/nuxt-teamgrid-sdk`
 
 This module exposes the TeamGrid API in the Nuxt Context.
 
@@ -8,9 +8,8 @@ This module exposes the TeamGrid API in the Nuxt Context.
 
 ```js
 module.exports = {
-  // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    // https://github.com/kubilaymelnikov/teamgrid-app
+  buildModules: [
+    // https://github.com/kubilaymelnikov/teamgrid-app/tree/master/packages/nuxt-teamgrid-sdk#readme
     '@teamgrid-app/nuxt-teamgrid-sdk',
   ],
 }

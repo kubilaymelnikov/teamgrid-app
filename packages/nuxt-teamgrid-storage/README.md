@@ -1,9 +1,16 @@
-# `nuxt-storage`
+# `@teamgrid-app/nuxt-storage`
 
 > TODO: description
 
 ## Usage
 
-```
-// TODO: DEMONSTRATE API
+### nuxt.config.js
+
+```js
+module.exports = {
+  buildModules: [
+    // https://github.com/kubilaymelnikov/teamgrid-app/tree/master/packages/nuxt-storage#readme
+    '@teamgrid-app/nuxt-storage',
+  ],
+}
 ```

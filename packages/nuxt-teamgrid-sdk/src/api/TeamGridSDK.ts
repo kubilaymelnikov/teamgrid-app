@@ -339,4 +339,4 @@ class TeamGridSDK {
   }
 }
 
-export default TeamGridSDK
+export { TeamGridSDK }

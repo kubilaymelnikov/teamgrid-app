@@ -1,44 +1,21 @@
 import { Module } from '@nuxt/types'
-import { join, resolve } from 'path'
-import TeamGridSDK from './api/TeamGridSDK'
+import { resolve } from 'path'
 
-const teamGridSDKModule: Module = function () {
+const module: Module = function () {
   this.addPlugin({
-    src: resolve(__dirname, 'plugins/context.js'),
-    fileName: join('teamgrid-shared', 'plugins.context.js'),
+    src: resolve(__dirname, './plugins/plugin.js'),
   })
 
   this.extendBuild((config) => {
-    config.resolve.alias['@nuxt-teamgrid-sdk'] = resolve(__dirname)
+    config.resolve.alias['@nuxt-teamgrid-storage'] = resolve(__dirname)
   })
 }
 
-declare module 'vue/types/vue' {
-  interface Vue {
-    $teamGridSDK: TeamGridSDK
-  }
-}
-
-declare module '@nuxt/types' {
-  interface NuxtAppOptions {
-    $teamGridSDK: TeamGridSDK
-  }
-  interface Context {
-    $teamGridSDK: TeamGridSDK
-  }
-}
-
-declare module 'vuex/types/index' {
-  interface Store<S> {
-    $teamGridSDK: TeamGridSDK
-  }
-}
-
-export default teamGridSDKModule
+export default module
 
 export * from './module'
-export * from './plugins/context'
-export * from './api/TeamGridSDK'
+export * from './plugins/plugin'
+export * from './api/teamGridSDK'
 export * from './api/types/Contact'
 export * from './api/types/List'
 export * from './api/types/Project'
