@@ -1,6 +1,6 @@
 # `nuxt-teamgrid-sdk`
 
-> TODO: description
+This module exposes the TeamGrid API in the Nuxt Context.
 
 ## Usage
 

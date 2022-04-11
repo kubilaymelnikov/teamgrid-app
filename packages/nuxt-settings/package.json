@@ -1,13 +1,13 @@
 {
-  "name": "@teamgrid-app/nuxt-teamgrid-sdk",
-  "version": "0.1.9",
+  "name": "@teamgrid-app/nuxt-settings",
+  "version": "0.1.0",
   "description": "> TODO: description",
   "author": {
     "name": "Kubilay Melnikov",
     "email": "peksen.kubilay@gmail.com",
     "url": "https://www.kubilaypeksen.de/"
   },
-  "homepage": "https://github.com/kubilaymelnikov/teamgrid-app/tree/master/packages/nuxt-teamgrid-sdk#readme",
+  "homepage": "https://github.com/kubilaymelnikov/teamgrid-app/tree/master/packages/nuxt-settings#readme",
   "license": "ISC",
   "main": "./lib/module.js",
   "typings": "./lib/types/module.d.ts",
@@ -27,11 +27,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/kubilaymelnikov/teamgrid-app.git",
-    "directory": "packages/nuxt-teamgrid-sdk"
+    "directory": "packages/nuxt-settings"
   },
-  "dependencies": {
-    "axios": "^0.26.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "nuxt": "^2.15.8"
   }
