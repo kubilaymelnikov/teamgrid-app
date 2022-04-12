@@ -1,8 +1,16 @@
 import { Plugin } from '@nuxt/types'
-import * as status from '@nuxt-status/store/status'
+import { state, namespaced, mutations } from '@nuxt-status/store/status'
 
 const context: Plugin = ({ store }) => {
-  store.registerModule('status', status)
+  store.registerModule(
+    'status',
+    {
+      state: Object.assign(state, store.state.status || {}),
+      namespaced,
+      mutations,
+    },
+    { preserveState: true }
+  )
 }
 
 export default context
