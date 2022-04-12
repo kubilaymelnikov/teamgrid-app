@@ -7,7 +7,7 @@ const module: Module = function () {
   })
 
   this.extendBuild((config) => {
-    config.resolve.alias['@nuxt-teamgrid-storage'] = resolve(__dirname)
+    config.resolve.alias['@nuxt-teamgrid-sdk'] = resolve(__dirname)
   })
 }
 

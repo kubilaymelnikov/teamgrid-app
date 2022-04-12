@@ -1,5 +1,5 @@
-import { TeamGridSDK } from '@teamgrid-app/nuxt-teamgrid-sdk/lib/api/teamGridSDK'
 import { Plugin } from '@nuxt/types'
+import { TeamGridSDK } from '@nuxt-teamgrid-sdk/api/teamGridSDK'
 
 declare module 'vue/types/vue' {
   interface Vue {
