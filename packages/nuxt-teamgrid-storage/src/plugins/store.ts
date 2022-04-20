@@ -11,7 +11,7 @@ const context: Plugin = ({ store }) => {
   store.registerModule(
     'storage',
     {
-      state: Object.assign(state, store.state.storage || {}),
+      state,
       namespaced,
       mutations,
       actions,

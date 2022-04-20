@@ -5,7 +5,7 @@ const context: Plugin = ({ store }) => {
   store.registerModule(
     'settings',
     {
-      state: Object.assign(state, store.state.settings || {}),
+      state,
       namespaced,
       mutations,
     },
