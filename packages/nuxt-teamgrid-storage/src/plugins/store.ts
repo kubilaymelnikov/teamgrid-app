@@ -8,17 +8,13 @@ import {
 } from '@nuxt-teamgrid-storage/store/storage'
 
 const context: Plugin = ({ store }) => {
-  store.registerModule(
-    'storage',
-    {
-      state,
-      namespaced,
-      mutations,
-      actions,
-      getters,
-    },
-    { preserveState: true }
-  )
+  store.registerModule('storage', {
+    state,
+    namespaced,
+    mutations,
+    actions,
+    getters,
+  })
 }
 
 export default context
