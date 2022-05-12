@@ -1,5 +1,4 @@
 export const namespaced = true
-
 export const state = () => ({
   team: {},
   users: [],
@@ -7,8 +6,9 @@ export const state = () => ({
   times: [],
   services: [],
   webhooks: [],
+  contacts: [],
+  projects: [],
 })
-
 export const mutations = {
   setTimes(state, { times }) {
     state.times = times
@@ -16,14 +16,12 @@ export const mutations = {
   addTime(state, { data }) {
     const add = (state, item) => {
       const index = state.times.findIndex((_) => _._id === item._id)
-
       if (index !== -1) {
         state.times[index] = Object.assign(state.times[index], item)
       } else {
         state.times.push(item)
       }
     }
-
     if (Array.isArray(data)) {
       data.forEach((time) => add(state, time))
     } else {
@@ -36,14 +34,12 @@ export const mutations = {
   addActiveTime(state, { data }) {
     const add = (state, item) => {
       const index = state.activeTimes.findIndex((_) => _._id === item._id)
-
       if (index !== -1) {
         state.activeTimes[index] = Object.assign(state.activeTimes[index], item)
       } else {
         state.activeTimes.push(item)
       }
     }
-
     if (Array.isArray(data)) {
       data.forEach((time) => add(state, time))
     } else {
@@ -67,6 +63,12 @@ export const mutations = {
   setServices(state, { services }) {
     state.services = services
   },
+  setContacts(state, { contacts }) {
+    state.contacts = contacts
+  },
+  setProjects(state, { projects }) {
+    state.projects = projects
+  },
   addWebhook(state, { webhook }) {
     state.webhooks.push(webhook)
   },
@@ -78,13 +80,11 @@ export const mutations = {
     state.times = []
   },
 }
-
 export const actions = {
   loadTimes({ commit }, params) {
     return this.$teamGridSDK.getTimes(params).then((response) => {
       const times = response.data.data.filter((_) => _.end !== null)
       const activeTimes = response.data.data.filter((_) => _.end === null)
-
       commit('setTimes', { sync: true, times })
       if (activeTimes.length) {
         commit('addActiveTime', { sync: true, data: activeTimes[0] })
@@ -102,9 +102,71 @@ export const actions = {
     })
   },
   loadServices({ commit }) {
+    // This will break as soon as we'll have more than 500 different services.
+    // We're probably good for a while.
     return this.$teamGridSDK.getServices().then((response) => {
       commit('setServices', { sync: true, services: response.data.data })
     })
+  },
+  async loadContacts({ commit }) {
+    let contacts = []
+
+    // Request new contact pages, and append these contacts to our
+    // contact array, until the current page is the last page.
+    // Teamgrid only allows to query up to 500 items per page,
+    // but we have short of 1000 contacts...
+    let reachedLastPage = false
+    let currentPage = 1
+    while (!reachedLastPage) {
+      await this.$teamGridSDK.getContacts({
+        limit: 500, // Teamgrids soft-limit per request
+        page: currentPage++
+      }).then((response) => {
+        // Append fetched contacts to our array
+        contacts = contacts.concat(response.data.data)
+
+        // Check if was the last page
+        reachedLastPage = response.data.pagination.page == response.data.pagination.pages
+
+      // Abort while-loop on any error, as it would never terminate...
+      }).catch((error) => {
+        reachedLastPage = true
+        console.error("Unable to fetch contacts for some reason!")
+        console.log(error)
+      })
+    }
+
+    commit('setContacts', { sync: true, contacts: contacts })
+  },
+  async loadProjects({ commit }) {
+    let projects = []
+
+    // Request new project pages, and append these projects to our
+    // projects array, until the current page is the last page.
+    // Teamgrid only allows to query up to 500 items per page,
+    // but we have short of 800 projects...
+    let reachedLastPage = false
+    let currentPage = 1
+    while (!reachedLastPage) {
+      await this.$teamGridSDK.getProjects({
+        limit: 500, // Teamgrids soft-limit per request
+        page: currentPage++
+      }).then((response) => {
+        // Append fetched projects to our array
+        projects = projects.concat(response.data.data)
+
+        // Check if was the last page
+        reachedLastPage = response.data.pagination.page == response.data.pagination.pages
+
+      // Abort while-loop on any error, as it would never terminate...
+      }).catch((error) => {
+        reachedLastPage = true
+        console.error("Unable to fetch projects for some reason!")
+        console.log(error)
+      })
+    }
+
+    commit('setProjects', { sync: true, projects: projects })
   },
   startTracking({ commit }, { userId, taskId }) {
     const time = Date.now()
@@ -167,15 +229,12 @@ export const actions = {
           commit('removeActiveTask', { sync: true })
         })
     }
-
     const activeTime = getters.activeTimeByUser(userId)
-
     if (Object.keys(activeTime).length) {
       return stopTracking(activeTime, stopTime)
     }
   },
 }
-
 export const getters = {
   usersSelectOption: ({ users }) => {
     return users.map((user) => ({
