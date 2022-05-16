@@ -118,22 +118,26 @@ export const actions = {
     let reachedLastPage = false
     let currentPage = 1
     while (!reachedLastPage) {
-      await this.$teamGridSDK.getContacts({
-        limit: 500, // Teamgrids soft-limit per request
-        page: currentPage++
-      }).then((response) => {
-        // Append fetched contacts to our array
-        contacts = contacts.concat(response.data.data)
+      await this.$teamGridSDK
+        .getContacts({
+          limit: 500, // Teamgrids soft-limit per request
+          page: currentPage++,
+        })
+        .then((response) => {
+          // Append fetched contacts to our array
+          contacts = contacts.concat(response.data.data)
 
-        // Check if was the last page
-        reachedLastPage = response.data.pagination.page == response.data.pagination.pages
+          // Check if was the last page
+          reachedLastPage =
+            response.data.pagination.page == response.data.pagination.pages
 
-      // Abort while-loop on any error, as it would never terminate...
-      }).catch((error) => {
-        reachedLastPage = true
-        console.error("Unable to fetch contacts for some reason!")
-        console.log(error)
-      })
+          // Abort while-loop on any error, as it would never terminate...
+        })
+        .catch((error) => {
+          reachedLastPage = true
+          console.error('Unable to fetch contacts for some reason!')
+          console.log(error)
+        })
     }
 
     commit('setContacts', { sync: true, contacts: contacts })
@@ -148,22 +152,26 @@ export const actions = {
     let reachedLastPage = false
     let currentPage = 1
     while (!reachedLastPage) {
-      await this.$teamGridSDK.getProjects({
-        limit: 500, // Teamgrids soft-limit per request
-        page: currentPage++
-      }).then((response) => {
-        // Append fetched projects to our array
-        projects = projects.concat(response.data.data)
+      await this.$teamGridSDK
+        .getProjects({
+          limit: 500, // Teamgrids soft-limit per request
+          page: currentPage++,
+        })
+        .then((response) => {
+          // Append fetched projects to our array
+          projects = projects.concat(response.data.data)
 
-        // Check if was the last page
-        reachedLastPage = response.data.pagination.page == response.data.pagination.pages
+          // Check if was the last page
+          reachedLastPage =
+            response.data.pagination.page == response.data.pagination.pages
 
-      // Abort while-loop on any error, as it would never terminate...
-      }).catch((error) => {
-        reachedLastPage = true
-        console.error("Unable to fetch projects for some reason!")
-        console.log(error)
-      })
+          // Abort while-loop on any error, as it would never terminate...
+        })
+        .catch((error) => {
+          reachedLastPage = true
+          console.error('Unable to fetch projects for some reason!')
+          console.log(error)
+        })
     }
 
     commit('setProjects', { sync: true, projects: projects })
