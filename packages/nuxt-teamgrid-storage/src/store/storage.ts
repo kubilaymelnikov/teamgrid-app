@@ -278,4 +278,11 @@ export const getters = {
       label: _.name,
     }))
   },
+  projectsSelectOption: ({ projects }) => {
+   return projects.map((_) => ({
+     value: _._id,
+     label: _.name,
+     info: _.info
+   }))
+  },
 }
